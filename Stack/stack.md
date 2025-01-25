@@ -4,6 +4,8 @@
 * s.pop() --remove
 * s.isEmpty() --check if empty
 * s.peek() --get the top element, won't remove
+* s.get()--> to get an element from a specific position
+* Collections.sort(s)--> to sort a stack
 
 ### insert into stack and print
 ```
@@ -23,5 +25,27 @@ class Main{
 }
 """
 1 2 3 4 5
+"""
+```
+
+### sort a stack elements
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input= new Scanner(System.in);
+        Stack<Integer> s = new Stack<>();
+        for(int i=0; i<5; i++){
+            s.push(input.nextInt());
+        }
+        Collections.sort(s);
+        for(int i=0; i<5; i++){
+            System.err.printf("%d ", s.get(i));
+        }
+    }
+}
+"""
+9 4 2 8 1
+1 2 4 8 9
 """
 ```
