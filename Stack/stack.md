@@ -6,6 +6,8 @@
 * s.peek() --get the top element, won't remove
 * s.get()--> to get an element from a specific position
 * Collections.sort(s)--> to sort a stack
+* s.size() -> size of stack
+* s.contains(element) --> to check is present or not
 
 ### insert into stack and print
 ```
@@ -94,5 +96,39 @@ class Main{
 1 2 3 4 5 6
 [1, 2, 3, 4, 5, 6]
 []
+"""
+```
+
+### remove duplicates
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input= new Scanner(System.in);
+        Stack<Integer> s = new Stack<>();
+        int n=input.nextInt();
+        for(int i=0; i<n; i++){
+            s.push(input.nextInt());
+        }
+      removeDuplicates(s);
+      System.out.println(s);
+    }
+    public static void removeDuplicates(Stack<Integer> s){
+        Stack<Integer> tempStack=new Stack<>();
+        while(!s.isEmpty()){
+            int element=s.pop();
+            if(!tempStack.contains(element)){
+                tempStack.push(element);
+            }
+        }
+        while(!tempStack.isEmpty()){
+            s.push(tempStack.pop());
+        }
+    }
+}
+"""
+6
+1 1 2 4 3 5
+[1, 2, 4, 3, 5]
 """
 ```
