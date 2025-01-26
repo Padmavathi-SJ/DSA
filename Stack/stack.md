@@ -231,3 +231,21 @@ class Main{
 [1, 2, 4, 5, 6, 7, 9]
 """
 ```
+
+### print heterogeneous elements from a stack
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Stack s=new Stack();
+        s.push("Padma");
+        s.push("Akila");
+        s.push(10);
+        s.push(10.253);
+        System.out.println(s);
+}
+}
+"""
+[Padma, Akila, 10, 10.253]
+"""
+```
