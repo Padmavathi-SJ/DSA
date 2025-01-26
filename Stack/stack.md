@@ -10,6 +10,8 @@
 * s.contains(element) --> to check is present or not
 * s.insertElementAt(element, index);
 * s.remove(index) --> to remove an element in a specific position
+* s1.equals(s2) --> check 2 stacks are equal or not
+* s.containsAll(s2) --> to check a stack is a substack of another stack
 
 ### insert into stack and print
 ```
