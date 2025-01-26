@@ -8,6 +8,7 @@
 * Collections.sort(s)--> to sort a stack
 * s.size() -> size of stack
 * s.contains(element) --> to check is present or not
+* s.insertElementAt(element, index);
 
 ### insert into stack and print
 ```
@@ -130,5 +131,33 @@ class Main{
 6
 1 1 2 4 3 5
 [1, 2, 4, 3, 5]
+"""
+```
+
+### Right rotate
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input= new Scanner(System.in);
+        Stack<Integer> s = new Stack<>();
+        int n=input.nextInt();
+        for(int i=0; i<n; i++){
+            s.push(input.nextInt());
+        }
+        rotate(s);
+         System.out.println(s);
+    }
+    public static void rotate(Stack<Integer> s){
+        if(s.isEmpty()) return;
+
+        int last=s.pop();
+        s.insertElementAt(last, 0);
+    }
+}
+"""
+6
+1 2 3 4 5 6
+[6, 1, 2, 3, 4, 5]
 """
 ```
