@@ -272,6 +272,9 @@ class Main{
                 s.push(ch);
             }
             else {
+if(s.isEmpty()){
+return false;
+}
                 char open=s.pop();
                 if(!isMatch(open, ch)){
                     return false;
