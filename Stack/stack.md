@@ -72,3 +72,27 @@ Max:8
 Min:1
 """
 ```
+
+### remove all emelemnts in a stack
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input= new Scanner(System.in);
+        Stack<Integer> s = new Stack<>();
+        int n=6;
+        for(int i=0; i<n; i++){
+            s.push(input.nextInt());
+        }
+        System.err.println(s);
+       s=new Stack<>();
+       System.err.println(s);
+
+    }
+}
+"""
+1 2 3 4 5 6
+[1, 2, 3, 4, 5, 6]
+[]
+"""
+```
