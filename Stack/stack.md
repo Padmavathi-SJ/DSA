@@ -9,6 +9,7 @@
 * s.size() -> size of stack
 * s.contains(element) --> to check is present or not
 * s.insertElementAt(element, index);
+* s.remove(index) --> to remove an element in a specific position
 
 ### insert into stack and print
 ```
@@ -159,5 +160,36 @@ class Main{
 6
 1 2 3 4 5 6
 [6, 1, 2, 3, 4, 5]
+"""
+```
+
+### merge two stacks
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input= new Scanner(System.in);
+        Stack<Integer> s1 = new Stack<>();
+        int n1=input.nextInt();
+        for(int i=0; i<n1; i++){
+            s1.push(input.nextInt());
+        }
+        Stack<Integer> s2=new Stack<>();
+        int n2=input.nextInt();
+        for(int i=0; i<n2; i++){
+            s2.push(input.nextInt());
+        }
+        for(int i=0; i<n2; i++){
+            s1.push(s2.get(i));
+        }
+        System.out.println(s1);
+}
+}
+"""
+5
+1 2 3 4 5  
+5
+6 7 8 9 10
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 """
 ```
