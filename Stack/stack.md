@@ -193,3 +193,37 @@ class Main{
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 """
 ```
+
+### merge 2 stacks --> remove duplicates --> print in ascending order
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input= new Scanner(System.in);
+        Stack<Integer> s1 = new Stack<>();
+        int n1=input.nextInt();
+        for(int i=0; i<n1; i++){
+            s1.push(input.nextInt());
+        }
+        Stack<Integer> s2=new Stack<>();
+        int n2=input.nextInt();
+        for(int i=0; i<n2; i++){
+            s2.push(input.nextInt());
+        }
+        for(int i=0; i<n2; i++){
+            if(!s1.contains(s2.get(i))){
+            s1.push(s2.get(i));
+            }
+        }
+        Collections.sort(s1);
+        System.out.println(s1);
+}
+}
+"""
+5
+6 7 9 4 1
+5
+6 2 1 4 5
+[1, 2, 4, 5, 6, 7, 9]
+"""
+```
