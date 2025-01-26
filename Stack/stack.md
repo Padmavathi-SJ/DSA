@@ -1,4 +1,6 @@
 ## Stack Data Structure
+* A stack can store heterogeneous elements
+  
 ### Built-in methods using in stack
 * s.push() --add
 * s.pop() --remove
