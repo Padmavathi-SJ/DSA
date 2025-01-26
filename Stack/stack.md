@@ -249,3 +249,53 @@ class Main{
 [Padma, Akila, 10, 10.253]
 """
 ```
+
+### Valid Parantheses
+```
+import java.util.*;
+class Main{
+    public static void main(String[] agrs){
+        Scanner input=new Scanner(System.in);
+
+        String str=input.next();
+        if(!check(str)){
+            System.out.println(false);
+        }
+        else{
+            System.out.println(true);
+        }
+    }
+    public static boolean check(String str){
+        Stack<Character> s=new Stack<>();
+        for(char ch:str.toCharArray()){
+            if(ch=='[' || ch=='(' || ch=='{'){
+                s.push(ch);
+            }
+            else {
+                char open=s.pop();
+                if(!isMatch(open, ch)){
+                    return false;
+                }
+            }
+        }
+        if(s.isEmpty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+       // System.out.println(str);
+    }
+    public static boolean isMatch(char open, char close){
+        return (open=='[' && close == ']') || (open == '(' && close == ')') || (open == '{' && close == '}');
+    }
+}
+"""
+[({})]
+true
+
+{(])
+false
+"""
+```
