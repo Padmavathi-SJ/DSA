@@ -118,3 +118,29 @@ true
 true
 """
 ```
+
+### Sort an ArrayList<Integer> in ascending order without using Collections.sort().
+```
+import java.util.*;
+class Main{
+public static void main(String[] args){
+    Scanner input = new Scanner(System.in);
+
+    List<Integer> l=new ArrayList<>();
+    for(int i=0; i<6; i++){
+        l.add(input.nextInt());
+    }
+for(int i=0; i<l.size(); i++){
+    for(int j=i+1; j<l.size(); j++){
+        if(l.get(i) > l.get(j))
+        Collections.swap(l, i, j);
+    }
+}
+System.out.println(l);
+}
+}
+"""
+2 6 5 1 3 4
+[1, 2, 3, 4, 5, 6]
+"""
+```
