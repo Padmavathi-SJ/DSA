@@ -53,3 +53,53 @@ false
 [Oii, padma, how, is, your]
 """
 ```
+
+### Methods of list interface performed
+```
+import java.util.*;
+class Main{
+public static void main(String[] args){
+    Scanner input = new Scanner(System.in);
+
+    List<String> l =new ArrayList<>();
+    List<String> l1=new ArrayList<>();
+    int n=6;
+    for(int i=0; i<n; i++){
+        l.add(input.next());
+    }
+    l.set(0, "Oii");
+    System.out.println(l.remove(5));
+    l.remove("your");
+    System.out.println(l.indexOf("are"));
+    System.out.println(l.get(1));
+    System.out.println(l.get(0));
+    System.out.println(l.contains("dii"));
+    l.add(2, "vathi");
+    System.out.println(l);
+    l1.add("Engineer");
+    l1.addAll(1, l);
+    System.out.println(l1);
+    System.out.println(l1.size());
+    // l1.clear(); //clear the all elements in this list, but the structure won't
+    System.out.println(l.equals(l1));
+    System.out.println(l1.isEmpty());
+    System.out.println(l.contains("Oii"));
+    System.out.println(l1.containsAll(l));
+}
+}
+"""
+Hi padma how is your job
+job
+-1
+padma
+Oii
+false
+[Oii, padma, vathi, how, is]
+[Engineer, Oii, padma, vathi, how, is]
+6
+false
+false
+true
+true
+"""
+```
