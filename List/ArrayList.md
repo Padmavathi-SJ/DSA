@@ -144,3 +144,49 @@ System.out.println(l);
 [1, 2, 3, 4, 5, 6]
 """
 ```
+
+### Subarray with Given Sum
+* Find a subarray whose sum equals the target.
+```
+import java.util.*;
+class Main{
+    public static int check(List<Integer> l, int s, int e){
+        int sum=0;
+        for(int i=s; i<=e; i++){
+            sum+=l.get(i);
+        }
+        return sum;
+    }
+    public static void copy(List<Integer> l, int s, int e){
+        List<Integer> result=new ArrayList<>();
+        for(int i=s; i<=e; i++){
+            result.add(l.get(i));
+        }
+        System.out.println(result);
+    }
+public static void main(String[] args){
+    Scanner input = new Scanner(System.in);
+
+    List<Integer> l=new ArrayList<>();
+    for(int i=0; i<6; i++){
+        l.add(input.nextInt());
+    }
+    boolean found=false;
+    int t=33;
+    for(int i=0; i<6; i++){
+        for(int j=i+1; j<6; j++){
+            int sum=check(l, i,j);
+            if(sum == t){
+                copy(l, i, j);
+                //found=true;
+                //break;
+            }
+        }
+    }
+}
+}
+"""
+1 4 20 3 10 5
+[20, 3, 10]
+"""
+```
