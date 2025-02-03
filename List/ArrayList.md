@@ -29,6 +29,7 @@
 * Collections.copy(list1, list2);
 * Collections.reverse(list)
 * Collections.suffle(list)
+* Collections.swap(list, index1, index2)
 * list.isEmpty()
 * list1.addAll(list2);
 * list1.equals(list2)
