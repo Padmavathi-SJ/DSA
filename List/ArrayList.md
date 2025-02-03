@@ -14,3 +14,9 @@
 
 ### Operations used in ArrayList Interface
 * add() --> add an element
+* get() --> get an element
+* remove() --> remove an element
+* set(index, newValue) --> update an eleemnt in a specific posiiton
+* indexOf(elemnt) --> to get an elemnet's index
+* lastIndexOf()
+* contains(element) --> to check list contains this element or not
