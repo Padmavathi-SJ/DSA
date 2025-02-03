@@ -39,15 +39,17 @@ public static void main(String[] args){
     System.out.println(l.get(1));
     System.out.println(l.get(0));
     System.out.println(l.contains("dii"));
+ System.out.println(l);
 
 }
 }
 """
-Hii pamd ahow are your job
+Hi padma how is your job
 job
-3
-pamd
+-1
+padma
 Oii
 false
+[Oii, padma, how, is, your]
 """
 ```
