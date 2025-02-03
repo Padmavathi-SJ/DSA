@@ -27,6 +27,8 @@
 * clear(list) --> to remove/delete all the elements in a list
 * Collections.sort(l) --> to sort elements
 * Collections.copy(list1, list2);
+* Collections.reverse(list)
+* Collections.suffle(list)
 * list.isEmpty()
 * list1.addAll(list2);
 * list1.equals(list2)
