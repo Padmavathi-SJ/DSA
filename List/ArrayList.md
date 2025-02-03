@@ -190,3 +190,41 @@ public static void main(String[] args){
 [20, 3, 10]
 """
 ```
+
+### Find Leaders in an ArrayList
+* An element is a "leader" if it is greater than all elements to its right.
+```
+import java.util.*;
+class Main{
+    public static boolean check(List<Integer> l, int n, int j, int len){
+        for(int i=j; i<len; i++){
+            if(l.get(i) > n){
+                return false;
+            }
+        }
+        return true;
+    }
+public static void main(String[] args){
+    Scanner input = new Scanner(System.in);
+
+    List<Integer> l=new ArrayList<>();
+    for(int i=0; i<6; i++){
+        l.add(input.nextInt());
+    }
+    List<Integer> res=new ArrayList<>();
+    boolean found=false;
+    int t=33;
+    for(int i=0; i<6; i++){
+        if(check(l, l.get(i), i+1,  6 )){
+            res.add(l.get(i));
+        }
+        }
+        System.out.println(res);
+    }
+    
+}
+"""
+16 17 4 3 5 2
+[17, 5, 2]
+"""
+```
