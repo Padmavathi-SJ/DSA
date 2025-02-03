@@ -20,3 +20,34 @@
 * indexOf(elemnt) --> to get an elemnet's index
 * lastIndexOf()
 * contains(element) --> to check list contains this element or not
+
+### operations performed in ArrayList
+```
+import java.util.*;
+class Main{
+public static void main(String[] args){
+    Scanner input = new Scanner(System.in);
+
+    List<String> l =new ArrayList<>();
+    int n=6;
+    for(int i=0; i<n; i++){
+        l.add(input.next());
+    }
+    l.set(0, "Oii");
+    System.out.println(l.remove(5));
+    System.out.println(l.indexOf("are"));
+    System.out.println(l.get(1));
+    System.out.println(l.get(0));
+    System.out.println(l.contains("dii"));
+
+}
+}
+"""
+Hii pamd ahow are your job
+job
+3
+pamd
+Oii
+false
+"""
+```
