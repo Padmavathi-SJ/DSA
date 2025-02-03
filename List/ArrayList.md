@@ -16,10 +16,22 @@
 * add() --> add an element
 * get() --> get an element
 * remove() --> remove an element
+* removeAll() --> to remove all elements
+* removeRange(fromIndex, toIndex)
 * set(index, newValue) --> update an eleemnt in a specific posiiton
 * indexOf(elemnt) --> to get an elemnet's index
 * lastIndexOf()
 * contains(element) --> to check list contains this element or not
+* list1.containsAll(list2) 
+* list.size() --> to get size of list
+* clear(list) --> to remove/delete all the elements in a list
+* Collections.sort(l) --> to sort elements
+* Collections.copy(list1, list2);
+* list.isEmpty()
+* list1.addAll(list2);
+* list1.equals(list2)
+
+
 
 ### operations performed in ArrayList
 ```
