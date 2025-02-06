@@ -50,3 +50,29 @@ Input: prices = [7,6,4,3,1]
 Output: 0
 """
 ```
+
+### 03. 238. Product of Array Except Self
+```
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] res=new int[nums.length];
+        int l=0;
+        for(int i=0; i<nums.length; i++){
+            int pro=1;
+            for(int j=0; j<nums.length; j++){
+                if(i==j) continue;
+                    pro*=nums[j];
+            }
+            res[l++]=pro;
+        }
+        return res;
+    }
+}
+"""
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
+
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
+"""
+```
