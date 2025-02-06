@@ -76,3 +76,28 @@ Input: nums = [-1,1,0,-3,3]
 Output: [0,0,9,0,0]
 """
 ```
+
+### 04. 217. Contains Duplicate
+```
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> s=new HashSet<>();
+        for(int i=0; i<nums.length; i++){
+            if(s.contains(nums[i])){
+                return true;
+            }
+            else{
+                s.add(nums[i]);
+            }
+        }
+       return false;
+    }
+}
+"""
+Input: nums = [1,2,3,1]
+Output: true
+
+Input: nums = [1,2,3,4]
+Output: false
+"""
+```
