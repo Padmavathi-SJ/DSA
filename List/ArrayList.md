@@ -366,3 +366,124 @@ class Main{
 [[1, 2, 3], [8, 6, 4, 2, 5], [3, 5], [1, 4, 6, 5, 2, 3]]
 """
 ```
+
+### Sum of Each Sublist
+```
+import java.util.*;
+class Main{
+    public static int findSum(List<Integer> l){
+        int sum=0;
+        for(int i=0; i<l.size(); i++){
+            sum+=l.get(i);
+        }
+        return sum;
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+       List<List<Integer>> ll=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        int len=input.nextInt();
+        List<Integer> sub=new ArrayList<>();
+        for(int j=0; j<len; j++){
+            sub.add(input.nextInt());
+        }
+        ll.add(sub);
+       }
+       List<Integer> res=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        int sum=findSum(ll.get(i));
+        res.add(sum);
+       }
+       System.out.println(res);
+    }
+}
+"""
+3
+2
+1 2
+3
+5 2 3
+3
+1 2 3
+[3, 10, 6]
+"""
+```
+
+### Find Maximum in Each Sublist
+```
+import java.util.*;
+class Main{
+    public static int findmax(List<Integer> l){
+        return Collections.max(l);
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+       List<List<Integer>> ll=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        int len=input.nextInt();
+        List<Integer> sub=new ArrayList<>();
+        for(int j=0; j<len; j++){
+            sub.add(input.nextInt());
+        }
+        ll.add(sub);
+       }
+       List<Integer> res=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        int max=findmax(ll.get(i));
+        res.add(max);
+       }
+       System.out.println(res);
+    }
+}
+"""
+3
+3
+5 2 1
+3
+6 4 5
+3 
+7 8 9
+[5, 6, 9]
+"""
+```
+
+### Reverse Each Sublist
+
+```
+import java.util.*;
+class Main{
+    public static void reversed(List<Integer> l){
+        Collections.reverse(l);
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+       List<List<Integer>> ll=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        int len=input.nextInt();
+        List<Integer> sub=new ArrayList<>();
+        for(int j=0; j<len; j++){
+            sub.add(input.nextInt());
+        }
+        ll.add(sub);
+       }
+
+       for(int i=0; i<n; i++){
+        reversed(ll.get(i));
+       }
+       System.out.println(ll);
+    }
+}
+"""
+3
+5
+1 2 3 4 5
+3
+2 5 6
+3
+7 8 9
+[[5, 4, 3, 2, 1], [6, 5, 2], [9, 8, 7]]
+"""
+```
