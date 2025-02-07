@@ -333,3 +333,36 @@ class Main{
 [[1, 2, 4, 3]]
 """
 ```
+
+### get and print lists of list
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+       List<List<Integer>> ll=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        int len=input.nextInt();
+        List<Integer> sub=new ArrayList<>();
+        for(int j=0; j<len; j++){
+            sub.add(input.nextInt());
+        }
+        ll.add(sub);
+       }
+       System.out.println(ll);
+    }
+}
+"""
+4
+3
+1 2 3
+5
+8 6 4 2 5
+2
+3 5
+6
+1 4 6 5 2 3
+[[1, 2, 3], [8, 6, 4, 2, 5], [3, 5], [1, 4, 6, 5, 2, 3]]
+"""
+```
