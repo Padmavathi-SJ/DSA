@@ -180,3 +180,35 @@ Input: nums = [-2,0,-1]
 Output: 0
 """
 ```
+
+### 08. 153. Find Minimum in Rotated Sorted Array
+```
+class Solution {
+    public int findMin(int[] nums) {
+        int min=nums[0];
+        for(int i=1; i<nums.length; i++){
+            min=Math.min(min, nums[i]);
+        }
+        return min;
+    }
+}
+"""
+Input: nums = [3,4,5,1,2]
+Output: 1
+
+
+Input: nums = [4,5,6,7,0,1,2]
+Output: 0
+"""
+```
+```
+class Solution {
+    public int findMin(int[] nums) {
+        List<Integer> l=new ArrayList<>();
+        for(int i=0; i<nums.length; i++){
+            l.add(nums[i]);
+        }
+        return Collections.min(l);
+    }
+}
+```
