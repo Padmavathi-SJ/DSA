@@ -264,3 +264,72 @@ class Main{
 [[2, 4, 6], [1, 3, 5]]
 """
 ```
+
+### print sublists
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+        List<List<Integer>> ll=new ArrayList<>();
+
+        for(int i=0; i<n; i++){
+            ll.add(new ArrayList<>());
+        }
+        System.out.println(ll);
+    }
+}
+"""
+3
+[[], [], []]
+"""
+```
+
+### subarray of target sum
+```
+import java.util.*;
+class Main{
+    public static int findSum(List<Integer> l, int s, int e){
+        int sum=0;
+        for(int i=s; i<=e; i++){
+            sum+=l.get(i);
+        }
+        return sum;
+    }
+    public static void addElements(List<Integer> l, List<Integer> curr, int s, int e){
+        for(int i=s; i<=e; i++){
+            curr.add(l.get(i));
+        }
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+        List<Integer> l=new ArrayList<>();
+        for(int i=0; i<n; i++){
+            l.add(input.nextInt());
+        }
+        int target=input.nextInt();
+        List<List<Integer>> ll=new ArrayList<>();
+        int sum=0;
+        for(int i=0; i<n; i++){
+            for(int j=i; j<n; j++){
+                sum=findSum(l, i, j);
+                if(sum==target){
+                    int len=j-i+1;
+                    List<Integer> curr = new ArrayList<>(len);
+                    addElements(l, curr, i, j);
+                    ll.add(curr);
+                }
+            } 
+        }
+        System.out.println(ll);
+    }
+}
+"""
+8
+1 2 4 3 6 5 1 2
+10
+[[1, 2, 4, 3]]
+"""
+```
