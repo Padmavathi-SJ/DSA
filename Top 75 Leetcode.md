@@ -148,3 +148,35 @@ Input: nums = [3,1,3,4,2]
 Output: 3
 """
 ```
+
+### 07. 152. Maximum Product Subarray
+```
+class Solution {
+    public int findPro(int[] nums, int s, int e){
+        int pro=1;
+        for(int i=s; i<=e; i++){
+            pro*=nums[i];
+        }
+        return pro;
+    }
+    public int maxProduct(int[] nums) {
+        if(nums.length==1) return nums[0];
+        int maxPro=0;
+        for(int i=0; i<nums.length; i++){
+           for(int j=i; j<nums.length; j++){
+            int currPro=findPro(nums, i, j);
+            maxPro=Math.max(currPro, maxPro);
+           }
+        }
+        return maxPro;
+    }
+}
+"""
+Input: nums = [2,3,-2,4]
+Output: 6
+
+
+Input: nums = [-2,0,-1]
+Output: 0
+"""
+```
