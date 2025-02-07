@@ -228,3 +228,39 @@ public static void main(String[] args){
 [17, 5, 2]
 """
 ```
+
+## Nested Lists
+
+### split even and odd 
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+        List<Integer> l=new ArrayList<>();
+        for(int i=0; i<n; i++){
+            l.add(input.nextInt());
+        }
+        List<List<Integer>> ll=new ArrayList<>();
+        List<Integer> even=new ArrayList<>();
+        List<Integer> odd=new ArrayList<>();
+        for(int i=0; i<n; i++){
+           if(l.get(i) % 2 == 0){
+            even.add(l.get(i));
+           }
+           else{
+            odd.add(l.get(i));
+           }
+        }
+        ll.add(even);
+        ll.add(odd);
+       System.out.println(ll);
+    }
+}
+"""
+6
+1 2 3  4 5 6
+[[2, 4, 6], [1, 3, 5]]
+"""
+```
