@@ -212,3 +212,28 @@ class Solution {
     }
 }
 ```
+
+### 09. 33. Search in Rotated Sorted Array
+```
+class Solution {
+    public int search(int[] nums, int target) {
+        List<Integer> l=new ArrayList<>();
+        for(int i=0; i<nums.length; i++){
+            l.add(nums[i]);
+        }
+        if(l.contains(target)){
+            return l.indexOf(target);
+        }
+        else{
+            return -1;
+        }
+    }
+}
+"""
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+"""
+```
