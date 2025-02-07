@@ -123,3 +123,28 @@ Input: nums = [5,4,-1,7,8]
 Output: 23
 """
 ```
+
+### 06. 287. Find the Duplicate Number
+```
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int res=0;
+        for(int i=0; i<nums.length; i++){
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[i] == nums[j]){
+                    res=nums[i];
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+}
+"""
+Input: nums = [1,3,4,2,2]
+Output: 2
+
+Input: nums = [3,1,3,4,2]
+Output: 3
+"""
+```
