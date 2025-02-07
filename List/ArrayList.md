@@ -487,3 +487,44 @@ class Main{
 [[5, 4, 3, 2, 1], [6, 5, 2], [9, 8, 7]]
 """
 ```
+
+###  Flatten the List of Lists
+* Convert a list of lists into a single list containing all elements.
+```
+import java.util.*;
+class Main{
+    public static void adding(List<Integer> org, List<Integer> temp){
+       for(int i=0; i<temp.size(); i++){
+        org.add(temp.get(i));
+       }
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+       List<List<Integer>> ll=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        int len=input.nextInt();
+        List<Integer> sub=new ArrayList<>();
+        for(int j=0; j<len; j++){
+            sub.add(input.nextInt());
+        }
+        ll.add(sub);
+       }
+       List<Integer> res=new ArrayList<>();
+       for(int i=0; i<n; i++){
+        adding(res, ll.get(i));
+        }
+       System.out.println(res);
+    }
+}
+"""
+3
+2
+1 2
+3
+4 5 6
+3
+7 8 9
+[1, 2, 4, 5, 6, 7, 8, 9]
+"""
+```
