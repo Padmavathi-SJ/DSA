@@ -102,6 +102,7 @@ class Main{
         System.out.println(y);
         System.out.println(l.containsAll(l2));
         System.out.println(x.isEmpty());
+ System.out.println(x.get(0);
     }
     
 }
@@ -123,5 +124,6 @@ true
 [10, akila, 5, 5, 10]
 true
 false
+10
 """
 ```
