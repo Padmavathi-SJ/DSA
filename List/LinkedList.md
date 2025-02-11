@@ -129,6 +129,7 @@ false
 ```
 
 ### Without any java inbuilt methods insert and values in a linkedlist
+### insert values **at the end of linkedlist**
 ```
 class Main{
     public static class Node{
