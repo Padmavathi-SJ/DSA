@@ -127,3 +127,58 @@ false
 10
 """
 ```
+
+### Without any java inbuilt methods insert and values in a linkedlist
+```
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+
+        public void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.println(node.data);
+                node=node.next;
+            }
+            System.out.println(node.data);
+        }
+
+    }
+public static void main(String[] args){
+
+    LinkedList l=new LinkedList();
+    l.insert(5);
+    l.insert(10);
+    l.insert(15);
+    l.insert(20);
+    l.show();
+}
+}
+"""
+5
+10
+15
+20
+"""
+```
