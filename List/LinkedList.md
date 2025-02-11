@@ -1421,3 +1421,711 @@ class Main{
 1 -> 5 -> 6 -> 7 -> 8 -> null //remove duplicated list
 """
 ```
+
+### Remove Nth Node from a LinkedList
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+        public  void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+        public void insertAtStart(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+            node.next=head;
+            head=node;
+
+        }
+        public void insertAt(int index, int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(index==0){
+                insertAtStart(data);
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                node.next=n.next;
+                n.next=node;
+            }
+        }
+        public void deleteAt(int index){
+            if(index==0){
+                head=head.next;
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                Node temp=n.next;
+                n.next=temp.next;
+                temp=null;
+            }
+        }
+        public int len(){
+            Node n=head;
+            int count=0;
+            while(n!=null){
+                count++;
+                n=n.next;
+            }
+            return count;
+        }
+        public boolean  search(int data){
+            Node n=head;
+            while(n!=null){
+                if(n.data==data){
+                    return true;
+                }
+                n=n.next;
+            }
+            return false;
+        }
+        public void reverse(){
+           Node current=head;
+           Node prev=null;
+           Node next;
+           while(current != null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+           }
+           head=prev;
+        }
+        public void printhead(){
+            Node n=head;
+            System.out.println(n.data);
+        }
+        public void findMiddle(int l){
+            int mid=l/2;
+            Node n=head;
+            int i=0;
+            while(n!=null){
+                if(i==mid){
+            System.out.println(n.data);
+                }
+                i++;
+                n=n.next;
+        }
+    }
+    public void findNthNode(int index){
+        Node n=head;
+        for(int i=0; i<index; i++){
+            n=n.next;
+        }
+        System.out.println(n.data);
+    }
+    public static Node merge(Node head1, Node head2){
+       if(head1==null) return head2;
+       if(head2==null) return head1;
+       Node dummy=new Node();
+       dummy.data=-1;
+       Node temp=dummy;
+       while(head1!=null && head2!=null){
+        if(head1.data < head2.data){
+            temp.next=head1;
+            temp=head1;
+            head1=head1.next;
+        }
+        else{
+            temp.next=head2;
+            temp=head2;
+            head2=head2.next;
+        }
+     //   temp=temp.next;
+       }
+       if(head1!=null) temp.next=head1;
+       if(head2!=null) temp.next=head2;
+       return dummy.next;
+    }
+    public void removeDuplicates(){
+        Node t1=head;
+        while(t1!=null){
+            Node t2=t1.next;
+            while(t2!=null){
+                if(t1.data == t2.data){
+                    t1.next=t2.next;
+                }
+                t2=t2.next;
+            }
+            t1=t1.next;
+        }
+    }
+    public void removeNthNode(int index, int len){
+        if(head==null) return;
+     if(index==0){
+        head=head.next;
+        return;
+     }
+     Node node=head;
+     for(int i=0; i<index-1; i++){
+        node=node.next;
+     }
+     if(node.next!=null){
+        node.next=node.next.next;
+     }
+
+    }
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.print(node.data + " -> ");
+                node=node.next;
+            }
+            System.out.print(node.data + " -> ");
+            System.out.println("null");
+        }
+
+    }
+
+    public static void main(String[] args){
+        LinkedList l1=new LinkedList();
+        l1.insert(1);
+        l1.insert(5);
+        l1.insert(6);
+        l1.insert(8);
+        l1.insert(10);
+        int length=l1.len();
+        l1.reverse();
+        //l1.show();
+        l1.removeNthNode(2, length);
+        l1.show();
+    }
+}
+"""
+10 -> 8 -> 5 -> 1 -> null
+"""
+```
+
+### Detect cycle in a linkedlist
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+        public  void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+        public void insertAtStart(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+            node.next=head;
+            head=node;
+
+        }
+        public void insertAt(int index, int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(index==0){
+                insertAtStart(data);
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                node.next=n.next;
+                n.next=node;
+            }
+        }
+        public void deleteAt(int index){
+            if(index==0){
+                head=head.next;
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                Node temp=n.next;
+                n.next=temp.next;
+                temp=null;
+            }
+        }
+        public int len(){
+            Node n=head;
+            int count=0;
+            while(n!=null){
+                count++;
+                n=n.next;
+            }
+            return count;
+        }
+        public boolean  search(int data){
+            Node n=head;
+            while(n!=null){
+                if(n.data==data){
+                    return true;
+                }
+                n=n.next;
+            }
+            return false;
+        }
+        public void reverse(){
+           Node current=head;
+           Node prev=null;
+           Node next;
+           while(current != null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+           }
+           head=prev;
+        }
+        public void printhead(){
+            Node n=head;
+            System.out.println(n.data);
+        }
+        public void findMiddle(int l){
+            int mid=l/2;
+            Node n=head;
+            int i=0;
+            while(n!=null){
+                if(i==mid){
+            System.out.println(n.data);
+                }
+                i++;
+                n=n.next;
+        }
+    }
+    public void findNthNode(int index){
+        Node n=head;
+        for(int i=0; i<index; i++){
+            n=n.next;
+        }
+        System.out.println(n.data);
+    }
+    public static Node merge(Node head1, Node head2){
+       if(head1==null) return head2;
+       if(head2==null) return head1;
+       Node dummy=new Node();
+       dummy.data=-1;
+       Node temp=dummy;
+       while(head1!=null && head2!=null){
+        if(head1.data < head2.data){
+            temp.next=head1;
+            temp=head1;
+            head1=head1.next;
+        }
+        else{
+            temp.next=head2;
+            temp=head2;
+            head2=head2.next;
+        }
+     //   temp=temp.next;
+       }
+       if(head1!=null) temp.next=head1;
+       if(head2!=null) temp.next=head2;
+       return dummy.next;
+    }
+    public void removeDuplicates(){
+        Node t1=head;
+        while(t1!=null){
+            Node t2=t1.next;
+            while(t2!=null){
+                if(t1.data == t2.data){
+                    t1.next=t2.next;
+                }
+                t2=t2.next;
+            }
+            t1=t1.next;
+        }
+    }
+    public void removeNthNode(int index, int len){
+        if(head==null) return;
+     if(index==0){
+        head=head.next;
+        return;
+     }
+     Node node=head;
+     for(int i=0; i<index-1; i++){
+        node=node.next;
+     }
+     if(node.next!=null){
+        node.next=node.next.next;
+     }
+    }
+
+    public static Node findIntersection(Node head1, Node head2){
+        if(head1==null || head2==null) return null;
+        Node t1=head1;
+        while(t1!=null){
+            Node t2=head2;
+            while(t2!=null){
+                if(t1==t2){
+                    return t1;
+                }
+                t2=t2.next;
+            }
+            t1=t1.next;
+        }
+        return null;
+    }
+    public static Node findCycle(Node head){
+        if(head==null) return null;
+        Stack<Integer> s=new Stack<>();
+        Node node=head;
+        while(node!=null){
+            if(s.contains(node.data)){
+                return node;
+            }
+            else{
+                s.push(node.data);
+            }
+            node=node.next;
+        }
+        return null;
+    }
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.print(node.data + " -> ");
+                node=node.next;
+            }
+            System.out.print(node.data + " -> ");
+            System.out.println("null");
+        }
+
+    }
+
+    public static void main(String[] args){
+        LinkedList l1=new LinkedList();
+        l1.insert(1);
+        l1.insert(2);
+        l1.insert(3);
+        l1.insert(4);
+        l1.insert(5);
+        l1.insert(6);
+        l1.insert(7);
+        l1.insert(8);
+        l1.insert(9);
+        l1.insert(3);
+        /* 
+        LinkedList l2=new LinkedList();
+        l1.insert(6);
+        l1.insert(4);
+        l1.insert(5);
+        int len1=l1.len();
+        int len2=l2.len();
+
+       // l1.reverse();
+        //l1.show();
+       // l1.removeNthNode(2, length);
+       // l1.show();
+      // Node intersection=LinkedList.findIntersection(l1.head, l2.head);
+       //System.out.println(intersection.data);
+       */
+       Node found = LinkedList.findCycle(l1.head);
+       if(found!=null){
+       System.out.print("true " + found.data);
+       }
+       else{
+        System.out.println("null");
+       }
+    }
+}
+"""
+true 3 //yes cycle there at the value 3 (node)
+"""
+```
+
+### Check if a linkedlist is palindrome or not
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+        public  void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+        public void insertAtStart(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+            node.next=head;
+            head=node;
+
+        }
+        public void insertAt(int index, int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(index==0){
+                insertAtStart(data);
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                node.next=n.next;
+                n.next=node;
+            }
+        }
+        public void deleteAt(int index){
+            if(index==0){
+                head=head.next;
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                Node temp=n.next;
+                n.next=temp.next;
+                temp=null;
+            }
+        }
+        public int len(){
+            Node n=head;
+            int count=0;
+            while(n!=null){
+                count++;
+                n=n.next;
+            }
+            return count;
+        }
+        public boolean  search(int data){
+            Node n=head;
+            while(n!=null){
+                if(n.data==data){
+                    return true;
+                }
+                n=n.next;
+            }
+            return false;
+        }
+        public void reverse(){
+           Node current=head;
+           Node prev=null;
+           Node next;
+           while(current != null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+           }
+           head=prev;
+        }
+        public void printhead(){
+            Node n=head;
+            System.out.println(n.data);
+        }
+        public void findMiddle(int l){
+            int mid=l/2;
+            Node n=head;
+            int i=0;
+            while(n!=null){
+                if(i==mid){
+            System.out.println(n.data);
+                }
+                i++;
+                n=n.next;
+        }
+    }
+    public void findNthNode(int index){
+        Node n=head;
+        for(int i=0; i<index; i++){
+            n=n.next;
+        }
+        System.out.println(n.data);
+    }
+    public static Node merge(Node head1, Node head2){
+       if(head1==null) return head2;
+       if(head2==null) return head1;
+       Node dummy=new Node();
+       dummy.data=-1;
+       Node temp=dummy;
+       while(head1!=null && head2!=null){
+        if(head1.data < head2.data){
+            temp.next=head1;
+            temp=head1;
+            head1=head1.next;
+        }
+        else{
+            temp.next=head2;
+            temp=head2;
+            head2=head2.next;
+        }
+     //   temp=temp.next;
+       }
+       if(head1!=null) temp.next=head1;
+       if(head2!=null) temp.next=head2;
+       return dummy.next;
+    }
+    public void removeDuplicates(){
+        Node t1=head;
+        while(t1!=null){
+            Node t2=t1.next;
+            while(t2!=null){
+                if(t1.data == t2.data){
+                    t1.next=t2.next;
+                }
+                t2=t2.next;
+            }
+            t1=t1.next;
+        }
+    }
+    public void removeNthNode(int index, int len){
+        if(head==null) return;
+     if(index==0){
+        head=head.next;
+        return;
+     }
+     Node node=head;
+     for(int i=0; i<index-1; i++){
+        node=node.next;
+     }
+     if(node.next!=null){
+        node.next=node.next.next;
+     }
+    }
+
+    public static Node findIntersection(Node head1, Node head2){
+        if(head1==null || head2==null) return null;
+        Node t1=head1;
+        while(t1!=null){
+            Node t2=head2;
+            while(t2!=null){
+                if(t1==t2){
+                    return t1;
+                }
+                t2=t2.next;
+            }
+            t1=t1.next;
+        }
+        return null;
+    }
+    public static Node findCycle(Node head){
+        if(head==null) return null;
+        Stack<Integer> s=new Stack<>();
+        Node node=head;
+        while(node!=null){
+            if(s.contains(node.data)){
+                return node;
+            }
+            else{
+                s.push(node.data);
+            }
+            node=node.next;
+        }
+        return null;
+    }
+    public void clone(Node head){
+        Node node=head;
+        while(node!=null){
+            this.insert(node.data);
+            node=node.next;
+        }
+    }
+    public static boolean compare(Node head1, Node head2){
+        if(head1==null || head2==null) return false;
+        Node t1=head1;
+        Node t2=head2;
+        while(t1!=null){
+            if(t1.data!=t2.data){
+                return false;
+            }
+            t1=t1.next;
+            t2=t2.next;
+        }
+        return true;
+    }
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.print(node.data + " -> ");
+                node=node.next;
+            }
+            System.out.print(node.data + " -> ");
+            System.out.println("null");
+        }
+
+    }
+
+    public static void main(String[] args){
+        LinkedList l1=new LinkedList();
+        l1.insert(1);
+        l1.insert(2);
+        l1.insert(3);
+        l1.insert(2);
+        l1.insert(1);
+        LinkedList l2=new LinkedList();
+        l2.clone(l1.head);
+       l1.reverse();
+      // l1.show();
+        //l2.show();
+        boolean check=LinkedList.compare(l1.head, l2.head);
+        System.out.println(check);
+    }
+}
+"""
+true //yes palindrome
+Approach=store values in another linkedlist and reverse a linkedlist then compare and check
+"""
+```
