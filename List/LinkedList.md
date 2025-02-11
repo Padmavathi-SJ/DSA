@@ -529,3 +529,246 @@ class Main{
 3 //length of linkedlist
 """
 ```
+
+### Search elements in a linkedlist
+```
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+
+        public  void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+        public void insertAtStart(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+            node.next=head;
+            head=node;
+
+        }
+        public void insertAt(int index, int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(index==0){
+                insertAtStart(data);
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                node.next=n.next;
+                n.next=node;
+            }
+        }
+        public void deleteAt(int index){
+            if(index==0){
+                head=head.next;
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                Node temp=n.next;
+                n.next=temp.next;
+                temp=null;
+            }
+        }
+        public int len(){
+            Node n=head;
+            int count=0;
+            while(n!=null){
+                count++;
+                n=n.next;
+            }
+            return count;
+        }
+        public boolean  search(int data){
+            Node n=head;
+            while(n!=null){
+                if(n.data==data){
+                    return true;
+                }
+                n=n.next;
+            }
+            return false;
+        }
+
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.println(node.data);
+                node=node.next;
+            }
+            System.out.println(node.data);
+        }
+    }
+    public static void main(String[] args){
+        LinkedList l=new LinkedList();
+        l.insert(5);
+        l.insert(20);
+        l.insert(100);
+        l.insertAt(2, 55);
+        l.insertAt(0, 200);
+        l.deleteAt(2);
+        l.deleteAt(0);
+        int l2=l.len();
+        System.out.println(l.search(55));
+        System.out.println(l.search(200));
+
+        
+    }
+}
+"""
+true
+false
+"""
+```
+
+### Reverse a linkedList using a stack
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+
+        public  void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+        public void insertAtStart(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+            node.next=head;
+            head=node;
+
+        }
+        public void insertAt(int index, int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(index==0){
+                insertAtStart(data);
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                node.next=n.next;
+                n.next=node;
+            }
+        }
+        public void deleteAt(int index){
+            if(index==0){
+                head=head.next;
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                Node temp=n.next;
+                n.next=temp.next;
+                temp=null;
+            }
+        }
+        public int len(){
+            Node n=head;
+            int count=0;
+            while(n!=null){
+                count++;
+                n=n.next;
+            }
+            return count;
+        }
+        public boolean  search(int data){
+            Node n=head;
+            while(n!=null){
+                if(n.data==data){
+                    return true;
+                }
+                n=n.next;
+            }
+            return false;
+        }
+        public void reverse(){
+           Stack<Integer> s=new Stack<>();
+           Node n=head;
+           while(n!=null){
+            s.push(n.data);
+            n=n.next;
+           }
+           Node m=head;
+           while(m!=null){
+            m.data=s.pop();
+            m=m.next;
+           }
+        }
+
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.println(node.data);
+                node=node.next;
+            }
+            System.out.println(node.data);
+        }
+    }
+    public static void main(String[] args){
+        LinkedList l=new LinkedList();
+        l.insert(5);
+        l.insert(20);
+        l.insert(100);
+        int l2=l.len();
+       
+        l.reverse();
+       l.show();
+        
+    }
+}
+"""
+100
+20
+5
+"""
+```
