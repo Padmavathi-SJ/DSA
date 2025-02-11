@@ -772,3 +772,135 @@ class Main{
 5
 """
 ```
+
+### Reverse LinkedList
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+
+        public  void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+        public void insertAtStart(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+            node.next=head;
+            head=node;
+
+        }
+        public void insertAt(int index, int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(index==0){
+                insertAtStart(data);
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                node.next=n.next;
+                n.next=node;
+            }
+        }
+        public void deleteAt(int index){
+            if(index==0){
+                head=head.next;
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                Node temp=n.next;
+                n.next=temp.next;
+                temp=null;
+            }
+        }
+        public int len(){
+            Node n=head;
+            int count=0;
+            while(n!=null){
+                count++;
+                n=n.next;
+            }
+            return count;
+        }
+        public boolean  search(int data){
+            Node n=head;
+            while(n!=null){
+                if(n.data==data){
+                    return true;
+                }
+                n=n.next;
+            }
+            return false;
+        }
+        public void reverse(){
+           Node current=head;
+           Node prev=null;
+           Node next;
+           while(current != null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+           }
+           head=prev;
+        }
+        public void printhead(){
+            Node n=head;
+            System.err.println(n.data);
+        }
+
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.println(node.data);
+                node=node.next;
+            }
+            System.out.println(node.data);
+        }
+    }
+    public static void main(String[] args){
+        LinkedList l=new LinkedList();
+        l.insert(5);
+        l.insert(20);
+        l.insert(100);
+        l.insert(200);
+        int l2=l.len();
+       
+        l.reverse();
+       l.show();
+   // l.printhead();
+    }
+}
+"""
+200
+100
+20
+5
+"""
+```
