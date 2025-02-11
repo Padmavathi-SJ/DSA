@@ -237,3 +237,75 @@ Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1
 """
 ```
+
+## Linked List
+### 206. Reverse Linked List
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev=null;
+        ListNode current=head;
+        ListNode next;
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        return prev;
+    }
+}
+"""
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+"""
+```
+
+### 141. Linked List Cycle
+```
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+       ListNode slow=head;
+       ListNode fast=head;
+       while(fast!=null && fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+        if(slow==fast){
+            return true;
+        }
+       }
+       return false;
+}
+
+}
+"""
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+"""
+```
