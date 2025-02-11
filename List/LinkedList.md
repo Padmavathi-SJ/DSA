@@ -1228,3 +1228,196 @@ class Main{
 1 -> 5 -> 5 -> 6 -> 6 -> 6 -> 7 -> 8 -> null
 """
 ```
+
+### Remove Duplicates in a LinkedList
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node next;
+    }
+    public static class LinkedList{
+        Node head;
+        public  void insert(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(head==null){
+                head=node;
+            }
+            else{
+                Node n=head;
+                while(n.next!=null){
+                    n=n.next;
+                }
+                n.next=node;
+            }
+        }
+        public void insertAtStart(int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+            node.next=head;
+            head=node;
+
+        }
+        public void insertAt(int index, int data){
+            Node node=new Node();
+            node.data=data;
+            node.next=null;
+
+            if(index==0){
+                insertAtStart(data);
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                node.next=n.next;
+                n.next=node;
+            }
+        }
+        public void deleteAt(int index){
+            if(index==0){
+                head=head.next;
+            }
+            else{
+                Node n=head;
+                for(int i=0; i<index-1; i++){
+                    n=n.next;
+                }
+                Node temp=n.next;
+                n.next=temp.next;
+                temp=null;
+            }
+        }
+        public int len(){
+            Node n=head;
+            int count=0;
+            while(n!=null){
+                count++;
+                n=n.next;
+            }
+            return count;
+        }
+        public boolean  search(int data){
+            Node n=head;
+            while(n!=null){
+                if(n.data==data){
+                    return true;
+                }
+                n=n.next;
+            }
+            return false;
+        }
+        public void reverse(){
+           Node current=head;
+           Node prev=null;
+           Node next;
+           while(current != null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+           }
+           head=prev;
+        }
+        public void printhead(){
+            Node n=head;
+            System.out.println(n.data);
+        }
+        public void findMiddle(int l){
+            int mid=l/2;
+            Node n=head;
+            int i=0;
+            while(n!=null){
+                if(i==mid){
+            System.out.println(n.data);
+                }
+                i++;
+                n=n.next;
+        }
+    }
+    public void findNthNode(int index){
+        Node n=head;
+        for(int i=0; i<index; i++){
+            n=n.next;
+        }
+        System.out.println(n.data);
+    }
+    public static Node merge(Node head1, Node head2){
+       if(head1==null) return head2;
+       if(head2==null) return head1;
+       Node dummy=new Node();
+       dummy.data=-1;
+       Node temp=dummy;
+       while(head1!=null && head2!=null){
+        if(head1.data < head2.data){
+            temp.next=head1;
+            temp=head1;
+            head1=head1.next;
+        }
+        else{
+            temp.next=head2;
+            temp=head2;
+            head2=head2.next;
+        }
+     //   temp=temp.next;
+       }
+       if(head1!=null) temp.next=head1;
+       if(head2!=null) temp.next=head2;
+       return dummy.next;
+    }
+    public void removeDuplicates(){
+        Node t1=head;
+        while(t1!=null){
+            Node t2=t1.next;
+            while(t2!=null){
+                if(t1.data == t2.data){
+                    t1.next=t2.next;
+                }
+                t2=t2.next;
+            }
+            t1=t1.next;
+        }
+    }
+        public void show(){
+            Node node=head;
+            while(node.next!=null){
+                System.out.print(node.data + " -> ");
+                node=node.next;
+            }
+            System.out.print(node.data + " -> ");
+            System.out.println("null");
+        }
+
+    }
+
+    public static void main(String[] args){
+        LinkedList l1=new LinkedList();
+        l1.insert(1);
+        l1.insert(5);
+        l1.insert(6);
+        l1.insert(6);
+        int length=l1.len();
+        LinkedList l2=new LinkedList();
+        l2.insert(5);
+        l2.insert(6);
+        l2.insert(7);
+        l2.insert(8);
+       
+       LinkedList mergeList=new LinkedList();
+       mergeList.head = LinkedList.merge(l1.head, l2.head);
+       mergeList.show();
+       mergeList.removeDuplicates();
+       mergeList.show();
+    }
+}
+"""
+1 -> 5 -> 5 -> 6 -> 6 -> 6 -> 7 -> 8 -> null //org list
+1 -> 5 -> 6 -> 7 -> 8 -> null //remove duplicated list
+"""
+```
