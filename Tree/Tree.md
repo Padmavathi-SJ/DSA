@@ -167,3 +167,74 @@ class Main{
 10 2 12 4 6 7
 """
 ```
+
+### Depth/Height of Binary Tree
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+
+        public Node(int data){
+            this.data=data;
+            this.left=null;
+            this.right=null;
+        }
+    }
+    public static class BinaryTree{
+        Node root;
+
+        public void insert(int data){
+            root=insertRec(root, data);
+        }
+
+        public Node insertRec(Node root, int data){
+            if(root==null){
+                return new Node(data);
+            }
+            else if(data < root.data){
+                root.left=insertRec(root.left, data);
+            }
+            else if(data > root.data){
+                root.right=insertRec(root.right, data);
+            }
+            return root;
+        }
+        public void depthOfTree(){
+            if(root==null) System.out.println(0);
+            Queue<Node> q=new LinkedList<>();
+            q.add(root);
+            int depth=0;
+            while(!q.isEmpty()){
+                int levelSize=q.size();
+                for(int i=0; i<levelSize; i++){
+                    Node curr=q.poll();
+                    if(curr.left!=null) q.add(curr.left);
+                    if(curr.right!=null) q.add(curr.right);
+                }
+                depth++;
+            }
+            System.out.println(depth-1);
+        }
+        
+       
+    }
+    public static void main(String[] args){
+        BinaryTree tree=new BinaryTree();
+        tree.insert(10);
+        tree.insert(12);
+        tree.insert(2);
+        tree.insert(4);
+        tree.insert(6);
+        tree.insert(7);
+        tree.depthOfTree();
+
+    }
+}
+"""
+4 //Depth of Binary Tree
+"""
+```
+
