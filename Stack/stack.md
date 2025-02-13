@@ -302,3 +302,9 @@ true
 false
 """
 ```
+
+
+## Implementation of Stack without using any inbuilt java methods:
+
+### Stack Implementation
+* Stack implementation using Arrays , LinkedLists, Queues
