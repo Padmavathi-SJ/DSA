@@ -11,6 +11,9 @@
 * Balanced Binary Tree -->
 * Degenerate Tree --> Every node has a **single children**
 
+### Properties
+* Depth os Binary Tree --> the distance from the root node to that particular node is called the **depth** of that particular node.
+
 
 ## Binary Tree implementation and Traversal
 ```
@@ -101,3 +104,66 @@ class Main{
 """
 ```
 
+### Binary Level Order Traversal
+```
+import java.util.*;
+class Main{
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+
+        public Node(int data){
+            this.data=data;
+            this.left=null;
+            this.right=null;
+        }
+    }
+    public static class BinaryTree{
+        Node root;
+
+        public void insert(int data){
+            root=insertRec(root, data);
+        }
+
+        public Node insertRec(Node root, int data){
+            if(root==null){
+                return new Node(data);
+            }
+            else if(data < root.data){
+                root.left=insertRec(root.left, data);
+            }
+            else if(data > root.data){
+                root.right=insertRec(root.right, data);
+            }
+            return root;
+        }
+        public void levelOrder(){
+            if(root==null) return;
+             Queue<Node> q=new LinkedList<>();
+             q.add(root);
+             while(!q.isEmpty()){
+                Node temp=q.poll();
+                System.out.print(temp.data + " ");
+                if(temp.left!=null) q.add(temp.left);
+                if(temp.right!=null) q.add(temp.right);
+             }
+        }
+       
+    }
+    public static void main(String[] args){
+        BinaryTree tree=new BinaryTree();
+        tree.insert(10);
+        tree.insert(12);
+        tree.insert(2);
+        tree.insert(4);
+        tree.insert(6);
+        tree.insert(7);
+        tree.levelOrder();
+
+    }
+}
+"""
+10 2 12 4 6 7
+"""
+```
