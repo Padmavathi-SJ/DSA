@@ -44,7 +44,16 @@ class Main{
     
 }
 """
-
+6
+hi padma how are you dii
+5
+dii
+[hi, how, are, you, dii]
+true
+5
+[hi, kavi, are, you, dii]
+3
+[]
 """
 ```
 
