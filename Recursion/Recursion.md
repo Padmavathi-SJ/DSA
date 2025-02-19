@@ -96,3 +96,56 @@ class Main{
 6
 """
 ```
+
+### find max in an array
+```
+import java.util.*;
+class Main{
+    public static int find(int[] arr, int max, int i){
+        if(arr.length==0) return 0;
+        if(arr.length==1) return arr[0];
+        if(i==arr.length) return max;
+        if(arr[i] > max) {
+            max=arr[i];
+    } 
+        return find(arr, max, i+1); 
+    }
+
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+
+    int[] arr={1,10,2,3,4,5};
+    int max=find(arr, 0, 0);
+    System.out.println(max);
+    }
+}
+"""
+10
+"""
+```
+
+### sum of digits
+```
+import java.util.*;
+class Main{
+    public static int find(int n, int sum){
+        if(n==0) return sum;
+        sum+=n%10;
+        n=n/10;
+        return find(n, sum);
+
+    }
+
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+
+    int n=input.nextInt();
+    int sum=find(n, 0);
+    System.out.println(sum);
+    }
+}
+"""
+12
+3
+"""
+```
