@@ -177,3 +177,28 @@ e
 H
 """
 ```
+
+### power calculation
+```
+import java.util.*;
+class Main{
+
+    public static int find(int x, int y, int pow){
+        //if(y==1) return x;
+        //if(x==0) return 1;
+        if(y==0) return pow;
+        pow=pow*x;
+        return find(x, y-1, pow);
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+
+    int pow=find(3, 0, 1);
+    System.out.println(pow);
+    
+    }
+}
+"""
+1
+"""
+```
