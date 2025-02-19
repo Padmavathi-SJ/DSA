@@ -149,3 +149,31 @@ class Main{
 3
 """
 ```
+
+### reverse a string
+```
+import java.util.*;
+class Main{
+    public static void reverse(String str, int i){
+        if(str.length()==1) System.out.println(str);
+        if(i<0) return;
+        System.out.println(str.charAt(i));
+        reverse(str, i-1);
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+
+    String str=input.next();
+    reverse(str, str.length()-1);
+    
+    }
+}
+"""
+Hello
+o
+l
+l
+e
+H
+"""
+```
