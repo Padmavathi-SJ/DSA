@@ -287,3 +287,36 @@ class Main{
 [[1, 2, 3, 4], [1, 2, 7], [1, 3, 6], [1, 4, 5], [2, 3, 5], [3, 7], [4, 6], [10]]
 """
 ```
+
+### get unique subArrays whose sum is equal to given target using HashSet
+```
+import java.util.*;
+class Main{
+    public static void find(Set<List<Integer>> ans, List<Integer> ds, int[] nums, int t, int i, int sum){
+        if(sum==t){
+            ans.add(new ArrayList<>(ds));
+            return;
+        }
+        if(i>=nums.length || sum>t){
+            return;
+        }
+        ds.add(nums[i]);
+        find(ans, ds, nums, t, i+1, sum+nums[i]);
+        ds.remove(ds.size()-1);
+
+        find(ans, ds, nums, t, i+1, sum);
+    }
+    public static void main(String[] args){
+        int[] nums={4,2,3,1,5,8,6,4,2};
+        Arrays.sort(nums);
+        int t=10;
+        Set<List<Integer>> set=new HashSet<>();
+        find(set, new ArrayList<>(), nums, t, 0, 0);
+        List<List<Integer>> ans=new ArrayList<>(set);
+        System.out.println(ans);
+    }
+}
+"""
+[[1, 4, 5], [2, 4, 4], [1, 3, 6], [2, 3, 5], [4, 6], [2, 2, 6], [2, 8], [1, 2, 2, 5], [1, 2, 3, 4]]
+"""
+```
