@@ -232,3 +232,26 @@ p
 true
 """
 ```
+
+### check element present or not (Binary search)
+```
+import java.util.*;
+class Main{
+    public static int find(int[] arr, int element, int i){
+        if(i==arr.length) return -1;
+        if(arr[i] == element) return i;
+        return find(arr, element, i+1);
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+
+    int[] arr={1,2,3,4,5};
+    int element=15;
+    int index=find(arr, element, 0);
+    System.out.println(index);
+    }
+}
+"""
+-1
+"""
+```
