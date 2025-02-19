@@ -255,3 +255,35 @@ class Main{
 -1
 """
 ```
+
+### find all the subarrays whose sum is equal to given target
+```
+import java.util.*;
+class Main{
+    public static void find(List<List<Integer>> ans, List<Integer> ds, int[] nums, int t, int i, int sum){
+        if(sum==t){
+            ans.add(new ArrayList<>(ds));
+            return;
+        }
+        if(i>=nums.length || sum>t){
+            return;
+        }
+        ds.add(nums[i]);
+        find(ans, ds, nums, t, i+1, sum+nums[i]);
+        ds.remove(ds.size()-1);
+
+        find(ans, ds, nums, t, i+1, sum);
+
+    }
+    public static void main(String[] args){
+        int[] nums={1,2,3,4,5,6,7,10};
+        int t=10;
+        List<List<Integer>> ans=new ArrayList<>();
+        find(ans, new ArrayList<>(), nums, t, 0, 0);
+        System.out.println(ans);
+    }
+}
+"""
+[[1, 2, 3, 4], [1, 2, 7], [1, 3, 6], [1, 4, 5], [2, 3, 5], [3, 7], [4, 6], [10]]
+"""
+```
