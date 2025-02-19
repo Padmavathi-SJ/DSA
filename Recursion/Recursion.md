@@ -202,3 +202,33 @@ class Main{
 1
 """
 ```
+
+### Palindrome check
+```
+import java.util.*;
+class Main{
+    public static boolean check(String str, int l, int r){
+        if(l>=r) return true;
+        if(str.charAt(l) != str.charAt(r)) return false;
+        return check(str, l+1, r-1); 
+    }
+
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+
+    String str=input.next();
+    boolean find=check(str, 0, str.length()-1);
+    System.out.println(find);
+    }
+}
+"""
+padma
+false
+
+madam
+true
+
+p
+true
+"""
+```
