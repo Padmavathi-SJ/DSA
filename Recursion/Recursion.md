@@ -71,3 +71,28 @@ class Main{
 0
 """
 ```
+
+### product of an array
+```
+import java.util.*;
+class Main{
+    public static int find(int[] arr, int pro, int i){
+        if(arr.length==0) return 0;
+        if(arr.length==1) return arr[0];
+        if(i==arr.length) return pro;
+        else pro=pro*arr[i++];
+        return find(arr, pro, i);
+    }
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+
+    int[] arr={1,2,3};
+    int pro=1;
+    pro=find(arr, pro, 0);
+    System.out.println(pro);
+    }
+}
+"""
+6
+"""
+```
