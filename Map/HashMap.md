@@ -26,3 +26,51 @@ class Main{
 {1=padma, 2=kavi, 3=akil, 4=ddas}
 """
 ```
+
+###
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        HashMap<Integer, String> map1=new HashMap<>();
+        map1.put(1, "padma");
+        map1.put(2, "kavi");
+        map1.put(3, "akil");
+        map1.put(4, "ddas");
+        HashMap<Integer, String> map2=new HashMap<>(map1);
+        System.out.println(map2);
+    }
+}
+"""
+{1=padma, 2=kavi, 3=akil, 4=ddas}
+"""
+```
+
+### print elements of  HashMap using iterator
+* Map.Entry<genric type> entry(variable name to access key and values)  : mapName.entrySet()
+```
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        HashMap<Integer, String> map1=new HashMap<>();
+        map1.put(1, "padma");
+        map1.put(2, "kavi");
+        map1.put(3, "akil");
+        map1.put(4, "ddas");
+        map1.put(5, "asdsa");
+        HashMap<Integer, String> map2=new HashMap<>(map1);
+        map2.put(4, "sai");
+        map2.remove(5);
+        for(Map.Entry<Integer, String> e: map2.entrySet()){
+            System.out.printf("%d - %s\n", e.getKey(), e.getValue());
+        }
+        //System.out.println(map2);
+    }
+}
+"""
+1 - padma
+2 - kavi
+3 - akil
+4 - sai
+"""
+```
