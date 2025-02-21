@@ -59,7 +59,7 @@ class Main{
         map1.put(4, "ddas");
         map1.put(5, "asdsa");
         HashMap<Integer, String> map2=new HashMap<>(map1);
-        map2.put(4, "sai");
+        map2.put(4, "tamil");
         map2.remove(5);
         for(Map.Entry<Integer, String> e: map2.entrySet()){
             System.out.printf("%d - %s\n", e.getKey(), e.getValue());
