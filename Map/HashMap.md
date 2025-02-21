@@ -74,3 +74,52 @@ class Main{
 4 - sai
 """
 ```
+
+
+### count frequencies of elements and print in descending order
+```
+import java.util.*;
+class Main{
+    public static void printNum(int num, int n){
+        for(int i=0; i<n; i++){
+            System.out.printf("%d ", num);
+        }
+    }
+    public static void main(String[] args){
+        String s="10 20 20 10 10 20 5 20";
+        String[] arr=s.split(" ");
+        int[] nums=new int[arr.length];
+        for(int i=0; i<arr.length; i++){
+            nums[i] = Integer.parseInt(arr[i].trim());
+        }
+        HashMap<Integer, Integer> map=new HashMap<>();
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] != Integer.MIN_VALUE){
+                int count=1;
+                for(int j=i+1; j<nums.length; j++){
+                    if(nums[i] == nums[j]){
+                        count++;
+                        nums[j]=Integer.MIN_VALUE;
+                    }
+                }
+                map.put(nums[i], count);
+            }
+        }
+        List<Map.Entry<Integer, Integer>> l=new ArrayList<>(map.entrySet());
+        l.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+        LinkedHashMap<Integer, Integer> sorted=new LinkedHashMap<>();
+        for(Map.Entry<Integer, Integer> e: l){
+            sorted.put(e.getKey(), e.getValue());
+        }
+        for(Map.Entry<Integer, Integer> e:sorted.entrySet()){
+            printNum(e.getKey(), e.getValue());
+            System.out.printf("\n");
+        }
+    }
+}
+"""
+20 20 20 20 
+10 10 10
+5
+"""
+```
