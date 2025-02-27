@@ -324,3 +324,6 @@ class Main{
 
 ## Kunal Kushwaha youtube channel recursion series
 ### problems learned & solved using recursion
+
+* natural nums till n
+* factorial of a num
