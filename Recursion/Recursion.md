@@ -327,3 +327,7 @@ class Main{
 
 * natural nums till n
 * factorial of a num
+* sum of digits
+* print nums till n in ascending and descending order
+* multiplication of digits
+* nth fibonacci num
