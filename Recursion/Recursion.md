@@ -331,3 +331,6 @@ class Main{
 * print nums till n in ascending and descending order
 * multiplication of digits
 * nth fibonacci num
+* reverse a num
+* check a num is palindrome or not
+* count 0s in a num
