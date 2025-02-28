@@ -337,3 +337,4 @@ class Main{
 * number of steps to reduce a num to zero
 * check if the array is sorted or not
 * linear search using recursion to return index f target element
+* find all occurences of an element inan arr using recursion and return type is ArrayList
