@@ -335,3 +335,5 @@ class Main{
 * check a num is palindrome or not
 * count 0s in a num
 * number of steps to reduce a num to zero
+* check if the array is sorted or not
+* linear search using recursion to return index f target element
