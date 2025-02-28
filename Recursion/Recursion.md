@@ -338,3 +338,40 @@ class Main{
 * check if the array is sorted or not
 * linear search using recursion to return index f target element
 * find all occurences of an element inan arr using recursion and return type is ArrayList
+
+### Binary Search using recurision
+```
+class Main{
+  public static int binarySearch(int[] arr, int t, int s, int e){
+    if(s>e){
+      return -1;
+    }
+    int mid=s + (e-s) / 2;
+
+    if(arr[mid] == t){
+      return mid;
+    }
+
+    if(arr[s] <= arr[mid]){
+       if(t >= arr[s] && t <= arr[mid]){
+         return binarySearch(arr, t, s, mid-1);
+       }
+       else{
+        return binarySearch(arr, t, mid+1, e);
+       }
+  }
+    if(t >= arr[mid] && t <= arr[e]){
+      return binarySearch(arr, t, mid+1, e);
+    }
+    return binarySearch(arr, t, s, mid-1);
+
+  }
+  public static void main(String[] args) {
+      int[] arr={5,6,7,8,9,1,2,3};
+      System.out.println(binarySearch(arr, 2, 0, arr.length-1));
+  }
+}
+"""
+6
+"""
+```
