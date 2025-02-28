@@ -334,3 +334,4 @@ class Main{
 * reverse a num
 * check a num is palindrome or not
 * count 0s in a num
+* number of steps to reduce a num to zero
