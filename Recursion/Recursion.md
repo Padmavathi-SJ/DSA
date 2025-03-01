@@ -406,3 +406,41 @@ class Solution {
 """
 ```
 
+### 1047. Remove All Adjacent Duplicates In String
+```
+import java.util.*;
+class Main{
+  public static Stack<Character> find(String s, Stack<Character> stack, int i){
+    if(i >= s.length()){
+      return stack;
+    }
+    if((i==0 || s.charAt(i)!=s.charAt(i-1)) && (i == s.length()-1 || s.charAt(i)!=s.charAt(i+1))) {
+      if(!stack.isEmpty() && stack.peek() == s.charAt(i)){
+        stack.pop();
+      }
+      else{
+        stack.push(s.charAt(i));
+      }
+    }
+    return find(s, stack, i+1);
+    
+  }
+  public static void main(String[] args) {
+    Scanner in=new Scanner(System.in);
+
+    String s=in.nextLine();
+    
+    Stack<Character> stack=new Stack<>();
+    stack=find(s, stack, 0);
+    StringBuilder sb=new StringBuilder();
+    for(int i=0; i<stack.size(); i++){
+      sb.append(stack.get(i));
+    }
+    System.out.println(sb.toString());
+  }
+}
+"""
+abbaca
+ca
+"""
+```
