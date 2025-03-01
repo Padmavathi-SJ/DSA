@@ -406,7 +406,8 @@ class Solution {
 """
 ```
 
-### 1047. Remove All Adjacent Duplicates In String
+### 1047. Remove All Adjacent Duplicates In String 
+* I used stack to keep store the resultant string
 ```
 import java.util.*;
 class Main{
@@ -437,6 +438,42 @@ class Main{
       sb.append(stack.get(i));
     }
     System.out.println(sb.toString());
+  }
+}
+"""
+abbaca
+ca
+"""
+```
+
+### 1047. Remove All Adjacent Duplicates In String 
+* I used String to keep store the resultant string
+```
+import java.util.*;
+class Main{
+  public static String find(String s, StringBuilder res, int i){
+    if(i >= s.length()){
+      return res.toString();
+    }
+    if((i==0 || s.charAt(i)!=s.charAt(i-1)) && (i == s.length()-1 || s.charAt(i)!=s.charAt(i+1))) {
+      if(res.length()>0 && res.charAt(res.length()-1)==s.charAt(i)){
+        res.deleteCharAt(res.length()-1);
+      }
+      else{
+        res.append(s.charAt(i));
+      }
+    }
+    return find(s, res, i+1);
+    
+  }
+  public static void main(String[] args) {
+    Scanner in=new Scanner(System.in);
+
+    String s=in.nextLine();
+    String res;
+    res=find(s, new StringBuilder(), 0);
+   
+    System.out.println(res);
   }
 }
 """
