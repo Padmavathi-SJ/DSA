@@ -481,3 +481,81 @@ abbaca
 ca
 """
 ```
+
+### Form a Palindrome from a given string and find the length of that
+```
+package practice;
+import java.util.*;
+
+public class PalindromeForming {
+	public static List<List<Character>> find(StringBuilder s, List<List<Character>> ll, List<Character> list, int l, int r){
+		if(l >= s.length()) {
+			return ll;
+		}
+		if(r >= s.length()) {
+			if(!list.isEmpty()) {
+				list.add(s.charAt(l));
+				if(list.size() %2 ==0) {
+					ll.add(new ArrayList<>(list));
+				}
+		}
+			return find(s, ll, new ArrayList<>(), l+1, l+2);
+		}
+		if(s.charAt(l) != '0' && s.charAt(l) == s.charAt(r)) {
+			list.add(s.charAt(r));
+			s.setCharAt(r, '0');
+			return find(s, ll, list, l, r+1);
+		}
+		else {
+		return find(s, ll, list, l, r+1);
+		}
+	}
+	public static void main(String[] args) {
+		Scanner in=new Scanner(System.in);
+		String s="abccccdd";
+		char single=' ';
+		for(int i=0; i<s.length(); i++) {
+			int count=1;
+			for(int j=i+1; j<s.length(); j++) {
+				if(s.charAt(i) == s.charAt(j)) {
+					count++;
+				}
+			}
+			if(count==1) {
+				single=s.charAt(i);
+				break;
+			}
+		}
+		List<List<Character>> ll=new ArrayList<>();
+		ll = find(new StringBuilder(s), ll, new ArrayList<>(), 0, 1);
+		int size=0;
+		for(int i=0; i<ll.size(); i++) {
+			size += ll.get(i).size();
+		}
+		char[] res=new char[size+1];
+		int left=0, right=size;
+		Collections.sort(ll, Comparator.comparingInt(List::size));
+		
+		for(int i=ll.size()-1; i>=0; i--) {
+			List<Character> temp=ll.get(i);
+			int j=0;
+			while(j<temp.size()) {
+				res[left++]=temp.get(j++);
+				res[right--]=temp.get(j++);
+			}
+		}
+		if(res.length %2 !=0) {
+			res[res.length/2]=single;
+		}
+		for(int i=0; i<res.length; i++) {
+			System.out.printf("%c", res[i]);		
+		}
+		 System.out.print("\n" + res.length);
+	}
+}
+
+"""
+ccdadcc
+7 longest length of formed palindrome
+"""
+```
