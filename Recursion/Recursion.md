@@ -559,3 +559,47 @@ ccdadcc
 7 longest length of formed palindrome
 """
 ```
+
+### Sort a string in decreasing order based on the frequencies of its characters
+```
+package practice;
+import java.util.*;
+
+public class PalindromeForming {
+	public static List<String> find(StringBuilder s, List<String> res, StringBuilder currStr, int l, int r) {
+		if(l >= s.length()) {
+			return res;
+		}
+		if(r >= s.length()) {
+		  if(s.charAt(l) != '0') {
+			currStr.append(s.charAt(l));
+			res.add(currStr.toString());
+		  }
+			return find(s, res, new StringBuilder(), l+1, l+2);
+		}
+		if(s.charAt(l) != '0' && s.charAt(l) == s.charAt(r)) {
+			currStr.append(s.charAt(r));
+			s.setCharAt(r, '0');
+			return find(s, res, currStr, l, r+1);
+		}
+		return find(s, res, currStr, l, r+1);
+	}
+	public static void main(String[] args) {
+	//	Scanner in=new Scanner(System.in);
+		String s="tree";
+		List<String> res=new ArrayList<>();
+		res=find(new StringBuilder(s), res, new StringBuilder(), 0, 1);
+		StringBuilder resultString=new  StringBuilder();
+		Collections.sort(res, Comparator.comparingInt(String::length));
+		
+		for(int i=res.size()-1; i>=0; i--) {
+			resultString.append(res.get(i));
+		}
+		System.out.println(resultString.toString());	
+	}
+}
+
+"""
+eert
+"""
+```
